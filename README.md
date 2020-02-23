@@ -27,7 +27,7 @@ import json
 
 ### Installing
 
-A step by step series of links that tell you how to get a development env running
+A step by step series of links that tell you how to run the project:
 
 * [Count Vectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) - This implementation produces a sparse representation of the counts using scipy.sparse.csr_matrix
 
