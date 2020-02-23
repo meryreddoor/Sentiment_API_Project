@@ -9,8 +9,3 @@ user_mycol = user_mydb["users"]
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 group_mydb = myclient["emotions"]
 group_mycol = group_mydb["groups"]
-
-#Conexion con la coleccion simpsons
-myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-simp_mydb = myclient["emotions"]
-simp_mycol = group_mydb["simpsons"]
