@@ -1,5 +1,45 @@
-# Chat_Project
+# API Project
+
+The purpose of this project is to build an API from the scratch.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics.pairwise import cosine_similarity as distance
+from mongoConnection import user_mydb,user_mycol
+from mongoConnection import group_mydb,group_mycol
+from bson.json_util import dumps
+from pymongo import MongoClient
+from flask import Flask, request
+import pandas as pd
+import numpy as np
+import nltk
+import json
+```
+
+### Installing
+
+A step by step series of links that tell you how to get a development env running
+
+* [Count Vectorizer](https://scikit-learn.org/stable/modules/generated/sklearn.feature_extraction.text.CountVectorizer.html) - This implementation produces a sparse representation of the counts using scipy.sparse.csr_matrix
+
+* [NLTK](https://www.nltk.org/api/nltk.sentiment.html) - This a tool to implement and facilitate Sentiment Analysis tasks using NLTK features and classifiers, especially for teaching and demonstrative purposes
 
 
-link: 
-*kaggle:* https://www.kaggle.com/pierremegret/dialogue-lines-of-the-simpsons
+## Main points covered
+
+- (L1��) Write an API in bottle just to store chat messages in a database like mongodb or mysql.
+- (L2��) Extract sentiment from chat messages and perform a report over a whole conversation
+- (L3��) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
+
+## Built With
+
+* [Kaggle](https://www.kaggle.com/pierremegret/dialogue-lines-of-the-simpsons) - The dataset used
