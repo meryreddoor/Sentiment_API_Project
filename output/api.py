@@ -82,6 +82,7 @@ def getList(chat_id):
     else:
         return "This _id is not in MongoDB"
 
+
 #analiza los sentimientos teniendo en cuenta los mensajes del chat
 @app.route('/chat/<chat_id>/sentiment',methods=["GET"])
 def getSentiment(chat_id):
