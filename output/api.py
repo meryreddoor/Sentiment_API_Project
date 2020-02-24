@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity as distance
+import seaborn as sns
 
 app = Flask(__name__)
 
@@ -85,12 +86,22 @@ def getSentiment(chat_id):
     sentimientos = sia.polarity_scores(frases)
     return sentimientos
 
-'''@app.route('/user/<user_name>/recommend/<chat_id>',methods=["GET"])
+@app.route('/user/<user_name>/recommend/<chat_id>',methods=["GET"])
 def recommendations(user_name,chat_id):
-    lista=getList(chat_id)[0]['mensajes']
-    count_vectorizer = CountVectorizer()
+    lista=getList(int(chat_id))
+    lista=json.loads(lista)[0]['mensajes']
     data = pd.DataFrame(lista)
-    sparse_matrix = count_vectorizer.fit_transform(data['texto'])
+    df=data.groupby('autor').apply(lambda x: ''.join(x.texto))
+    df=pd.DataFrame(df).reset_index()
+    count_vectorizer = CountVectorizer()
+    sparse_matrix = count_vectorizer.fit_transform(df[0])
+    doc_term_matrix = sparse_matrix.todense()
+    letters_users = pd.DataFrame(doc_term_matrix, 
+                    columns=count_vectorizer.get_feature_names(), 
+                    index=df['autor'])
+    similarity_matrix = distance(letters_users,letters_users)
+    sim_df = pd.DataFrame(similarity_matrix, columns=df['autor'], index=df['autor'])
+    similarities = sim_df[user_name].sort_values(ascending=False)[1:]
+    return dumps(similarities)
 
-'''
 app.run("0.0.0.0", 5000, debug=True)
