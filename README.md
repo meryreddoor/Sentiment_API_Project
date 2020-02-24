@@ -37,6 +37,7 @@ A step by step series of links that tell you how to run the project:
 ## Main points covered
 
 - (L1) Write an API in MongoDB just to store chat messages in a database like mongodb or mysql.
+
 - (L2) Extract sentiment from chat messages and perform a report over a whole conversation
 - (L3) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
 
