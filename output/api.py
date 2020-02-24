@@ -31,6 +31,7 @@ def new_users(name):
         x = user_mycol.insert_one(mydict)
         return "User inserted"
 
+#crea un chat nuevo
 @app.route('/chat/create/<chat>',methods=["GET"])
 def new_chat(chat):
     chats=(group_mycol.distinct("chat"))
@@ -45,6 +46,7 @@ def new_chat(chat):
         x = group_mycol.insert_one(mydict)
         return "Chat inserted"
 
+#añade usuarios al chat
 @app.route('/chat/<_id>/adduser/<user_name>',methods=["GET"])
 def new_user_chat(user_name,_id):
     names=(group_mycol.distinct("user_name"))
@@ -58,6 +60,7 @@ def new_user_chat(user_name,_id):
         usuarios=group_mycol.update({"_id":int(_id)},{"$push":{"user_name":user_name}})
         return "User inserted"
 
+#añade nuevos mensajes al chat
 @app.route('/chat/<_id>/mensajes/<mensajes>/adduser/<user_name>',methods=["GET"])
 def new_mensajes_chat(mensajes,_id,user_name):
     names=(group_mycol.distinct("user_name"))
@@ -69,6 +72,7 @@ def new_mensajes_chat(mensajes,_id,user_name):
     else:
         return "Users not in group, try with different"
 
+#devuelve la lista de mensajes del chat
 @app.route('/chat/<chat_id>/list',methods=["GET"])
 def getList(chat_id):
     chats=(group_mycol.distinct("_id"))
@@ -78,6 +82,7 @@ def getList(chat_id):
     else:
         return "This _id is not in MongoDB"
 
+#analiza los sentimientos teniendo en cuenta los mensajes del chat
 @app.route('/chat/<chat_id>/sentiment',methods=["GET"])
 def getSentiment(chat_id):
     frases = group_mycol.find({"_id":int(chat_id)},{"_id":0,"mensajes":1})
@@ -86,6 +91,7 @@ def getSentiment(chat_id):
     sentimientos = sia.polarity_scores(frases)
     return sentimientos
 
+#recomienda 3 personas teniendo en cuenta los mensajes del chat
 @app.route('/user/<user_name>/recommend/<chat_id>',methods=["GET"])
 def recommendations(user_name,chat_id):
     lista=getList(int(chat_id))
