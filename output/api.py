@@ -12,12 +12,14 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity as distance
 import seaborn as sns
+from errorHandler import jsonErrorHandler
 
 app = Flask(__name__)
 
 #crea un username y la inserta en la api
 #mira que no esté ya asignado.
 @app.route('/user/create/<name>',methods=["GET"])
+@jsonErrorHandler
 def new_users(name):
     names = (user_mycol.distinct("name"))
     if name in names:
@@ -33,6 +35,7 @@ def new_users(name):
 
 #crea un chat nuevo
 @app.route('/chat/create/<chat>',methods=["GET"])
+@jsonErrorHandler
 def new_chat(chat):
     chats=(group_mycol.distinct("chat"))
     if chat in chats:
@@ -48,6 +51,7 @@ def new_chat(chat):
 
 #añade usuarios al chat
 @app.route('/chat/<_id>/adduser/<user_name>',methods=["GET"])
+@jsonErrorHandler
 def new_user_chat(user_name,_id):
     names=(group_mycol.distinct("user_name"))
     if user_name in names:
@@ -62,6 +66,7 @@ def new_user_chat(user_name,_id):
 
 #añade nuevos mensajes al chat
 @app.route('/chat/<_id>/mensajes/<mensajes>/adduser/<user_name>',methods=["GET"])
+@jsonErrorHandler
 def new_mensajes_chat(mensajes,_id,user_name):
     names=(group_mycol.distinct("user_name"))
     if user_name in names:
@@ -74,6 +79,7 @@ def new_mensajes_chat(mensajes,_id,user_name):
 
 #devuelve la lista de mensajes del chat
 @app.route('/chat/<chat_id>/list',methods=["GET"])
+@jsonErrorHandler
 def getList(chat_id):
     chats=(group_mycol.distinct("_id"))
     if int(chat_id) in chats:
@@ -85,6 +91,7 @@ def getList(chat_id):
 
 #analiza los sentimientos teniendo en cuenta los mensajes del chat
 @app.route('/chat/<chat_id>/sentiment',methods=["GET"])
+@jsonErrorHandler
 def getSentiment(chat_id):
     frases = group_mycol.find({"_id":int(chat_id)},{"_id":0,"mensajes":1})
     frases = ' '.join(x['texto'] for x in frases[0]['mensajes'])
@@ -94,6 +101,7 @@ def getSentiment(chat_id):
 
 #recomienda 3 personas teniendo en cuenta los mensajes del chat
 @app.route('/user/<user_name>/recommend/<chat_id>',methods=["GET"])
+@jsonErrorHandler
 def recommendations(user_name,chat_id):
     lista=getList(int(chat_id))
     lista=json.loads(lista)[0]['mensajes']
