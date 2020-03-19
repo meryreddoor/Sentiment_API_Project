@@ -44,3 +44,5 @@ A step by step series of links that tell you how to run the project:
 ## Built With
 
 * [Kaggle](https://www.kaggle.com/pierremegret/dialogue-lines-of-the-simpsons) - The dataset used
+
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
