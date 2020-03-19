@@ -1,6 +1,8 @@
 # API Project
 
 The purpose of this project is to build an API from the scratch.
+The API analyzes texts and determines its polarity and its subjectivity(sentiment). 
+Also, it establishes the affinity between people. 
 
 ## Getting Started
 
@@ -40,6 +42,10 @@ A step by step series of links that tell you how to run the project:
 
 - (L2) Extract sentiment from chat messages and perform a report over a whole conversation
 - (L3) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
+
+## Demo
+
+You can find a `demo` in `output` folder in order to understan how the API works.
 
 ## Built With
 
