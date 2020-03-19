@@ -38,14 +38,17 @@ A step by step series of links that tell you how to run the project:
 
 ## Main points covered
 
-- (L1) Write an API in MongoDB just to store chat messages in a database like mongodb or mysql.
+1. Write an API in MongoDB just to store chat messages in a database like mongodb or MySQL.
 
-- (L2) Extract sentiment from chat messages and perform a report over a whole conversation
-- (L3) Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
+2. Extract sentiment from chat messages and perform a report over a whole conversation
+
+3. Recommend friends to a user based on the contents from chat `documents` using a recommender system with `NLP` analysis.
 
 ## Demo
 
 You can find a `demo` in `output` folder in order to understan how the API works.
+
+* [Demo API Link](https://github.com/meryreddoor/Chat_Project/blob/ramaChat/output/demo_api.ipynb)
 
 ## Built With
 
