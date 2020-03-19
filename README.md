@@ -54,4 +54,4 @@ You can find a `demo` in `output` folder in order to understan how the API works
 
 * [Kaggle](https://www.kaggle.com/pierremegret/dialogue-lines-of-the-simpsons) - The dataset used
 
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - It provides tools, libraries and technologies that allow you to build a web application.
