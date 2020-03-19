@@ -46,7 +46,7 @@ A step by step series of links that tell you how to run the project:
 
 ## Demo
 
-You can find a `demo` in `output` folder in order to understan how the API works.
+You can find a `demo` in `output` folder in order to understand how the API works.
 
 * [Demo API Link](https://github.com/meryreddoor/Chat_Project/blob/ramaChat/output/demo_api.ipynb)
 
@@ -54,4 +54,4 @@ You can find a `demo` in `output` folder in order to understan how the API works
 
 * [Kaggle](https://www.kaggle.com/pierremegret/dialogue-lines-of-the-simpsons) - The dataset used
 
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - It provides tools, libraries and technologies that allow you to build a web application.
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - It provides tools, libraries and technologies that allows you to build a web application.
