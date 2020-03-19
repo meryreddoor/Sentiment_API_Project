@@ -1,5 +1,7 @@
 # ‘Sentiment API’ Project
 
+![imagen](https://github.com/meryreddoor/Chat_Project/blob/ramaChat/img/sentimen_an.jpg)
+
 The purpose of this project is to build an API from the scratch.
 The API analyzes texts and determines its polarity and its subjectivity(sentiment). 
 Also, it establishes the affinity between people. 
