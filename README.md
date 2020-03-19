@@ -1,4 +1,4 @@
-# API Project
+# ‘Sentiment API’ Project
 
 The purpose of this project is to build an API from the scratch.
 The API analyzes texts and determines its polarity and its subjectivity(sentiment). 
